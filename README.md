@@ -1,1 +1,1 @@
-# Budget-Trucker
+# Bookstore Inventory Management System
