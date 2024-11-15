@@ -1,0 +1,12 @@
+----- Command to add virtual environment ----
+MacOS: source virtual_environments/hershey_venv/bin/activate
+
+Windows (you can also watch Mr. Hamby's Tutorial in M04: Intro. to Django, APIs, and DB): 
+to activate: virtual_environments\[name_of_your_venv]\Scripts\activate
+
+--------- Database --------
+to add python django db: python manage.py migrate
+
+---------- Website ---------
+to run website: python manage.py runserver or localhost:8000 -> or the 8000 may be different to each of us
+
