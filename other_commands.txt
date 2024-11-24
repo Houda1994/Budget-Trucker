@@ -5,8 +5,38 @@ Windows (you can also watch Mr. Hamby's Tutorial in M04: Intro. to Django, APIs,
 to activate: virtual_environments\[name_of_your_venv]\Scripts\activate
 
 --------- Database --------
-to add python django db: python manage.py migrate
+to add python django db: python manage.py makemigrations -> only on the first time you created the Django Project
 
+to add new db every time (in order)
+1. Make sure that the app's name is included in the backend/settings.py or
+ backend\settings.py under INSTALLED_APPS = []
+2. Then, after creating the db models under backend/Book_Store/models.py or backend\Book_Store\models.py use
+ these commands in the terminal in order
+ -python manage.py makemigrations
+ -python manage.py migrate
+
+ ----- to add something to the Database ----
+ These are commands in the Terminal (Don't include the dash)
+ 1. Open the Django Shell
+ - python
+
+ 2. Import the models
+ - from Book_Store.models import [column_name]
+
+ 3. Create and Save 
+ Example to add an Author:
+ author = Author(
+    first_name="John",
+    last_name="Doe",
+    dob="1970-01-01",
+    picture = None  # Assuming no picture for simplicity
+)
+
+4. Save the details
+- db.session.add(author)
+
+5. Commit changes
+- db.session.commit()
 ---------- Website ---------
 to run website: python manage.py runserver or localhost:8000 -> or the 8000 may be different to each of us
 
