@@ -4,21 +4,21 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    color: #333; /* Default text color */
+    color: #333; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 .container {
-    max-width: 1200px; /* Wider container for better layout */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 1rem;
 }
 
 /* Header */
 header {
-    background-color: #b20027; /* Dark header background */
+    background-color: #5B5B5B; 
     color: #fff;
     padding: 1rem 0;
     width: 100%;
@@ -26,7 +26,7 @@ header {
 
 .header-container {
     display: flex;
-    justify-content: space-between; /* Title on the left, nav on the right */
+    justify-content: space-between; 
     align-items: center;
 }
 
@@ -79,7 +79,7 @@ header nav ul li a {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        background-color: #b20027;
+        background-color: #242424;
         position: absolute;
         top: 60px;
         left: 0;
@@ -96,13 +96,13 @@ header nav ul li a {
 
 /* Main Content */
 main {
-    flex: 1; /* Fills the remaining height */
-    padding: 2rem 1rem; /* Adds spacing around main content */
+    flex: 1; 
+    padding: 2rem 1rem;
 }
 
 .filter-form-container {
     display: flex;
-    justify-content: flex-start; /* Align the filter form to the left */
+    justify-content: flex-start; 
     margin-bottom: 2rem;
 }
 
@@ -118,16 +118,34 @@ main {
 }
 
 .filter-form select,
-.filter-form button {
+.filter-form button,
+.filter-form input[type="text"] {
     padding: 0.5rem;
     font-size: 1rem;
+    width: 200px; 
+}
+
+.filter-form button {
+    background-color: #000; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0.4rem 1rem; 
+    font-size: 0.9rem; 
+    width: auto; 
+}
+
+.filter-form button:hover {
+    background-color: #333; 
 }
 
 .book-grid {
     margin-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Limit to 6 columns per row */
-    gap: 1.5rem; /* Fixed gap between book cards */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 1.5rem;
     justify-content: center;
 }
 
@@ -142,8 +160,13 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+}
+
+.book-card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .book-card img {
@@ -200,7 +223,7 @@ main {
     flex: 1;
     font-size: 1rem;
     line-height: 1.6;
-    color: #555;
+    color: #242424;
 }
 
 .book-info p {
@@ -215,7 +238,7 @@ main {
     font-size: 1rem;
     text-align: center;
     color: #fff;
-    background-color: #007bff;
+    background-color: #373737; 
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -224,7 +247,7 @@ main {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #5B5B5B; 
 }
 
 /* Footer */
@@ -234,6 +257,54 @@ footer {
     text-align: center;
     padding: 1rem 0;
     margin-top: auto;
+}
+
+/* Author List Specific Styles */
+.author-list-container {
+    margin-top: 2rem;
+}
+
+.author-list {
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem; 
+    align-items: flex-start;
+}
+
+.author-name {
+    font-size: 1.5rem; /* Larger font size for author names */
+    color: #333;
+    text-decoration: none;
+}
+
+.author-name:hover {
+    text-decoration: underline;
+}
+
+/* Author Detail Specific Styles */
+.author-detail {
+    display: flex;
+    gap: 2rem; 
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.author-picture img {
+    width: 200px; 
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover; 
+}
+
+.author-info {
+    max-width: 600px; 
+    line-height: 1.6;
+    color: #555;
+}
+
+.author-info p {
+    margin: 0.5rem 0;
 }
 
 /* Media Queries */

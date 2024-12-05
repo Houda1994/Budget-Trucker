@@ -1,14 +1,16 @@
-<!-- frontend/templates/books/book_list.html -->
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Book List{% endblock %}
+{% block title %}Books{% endblock %}
 
 {% block content %}
 <h1>Books</h1>
+
 <div class="filter-form-container">
     <form method="get" action="" class="filter-form">
-        <!-- Keep the search query -->
-        <input type="hidden" name="q" value="{{ query }}">
+        <!-- Search Box -->
+        <label for="search">Search:</label>
+        <input type="text" name="q" id="search" value="{{ query }}" placeholder="Search books...">
 
         <label for="category">Filter by Category:</label>
         <select name="category" id="category">
@@ -30,6 +32,7 @@
 </div>
 
 <!-- Book List -->
+{% if books %}
 <div class="book-grid">
     {% for book in books %}
         <div class="book-card">
@@ -44,4 +47,11 @@
         </div>
     {% endfor %}
 </div>
+{% else %}
+<p>No books found.</p>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}

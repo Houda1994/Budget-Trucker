@@ -30,6 +30,7 @@ urlpatterns = [
     path('books/<int:pk>/', views.book_detail, name='book_detail'), # Book detail view
     path('books-authors/', views.book_author_list, name='book_author_list'), # Author List
     path('author/<int:pk>/', views.author_detail, name='author_detail'),
+     path('authors/suggestions/', views.author_suggestions, name='author_suggestions'),
     
 ]
 
