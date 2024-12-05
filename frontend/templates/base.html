@@ -1,0 +1,45 @@
+<!-- frontend/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Book Store{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <h1><a href="/" class="title-link">Book Store</a></h1>
+            <nav>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul id="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'book_list' %}">Books</a></li>
+                    <li><a href="{% url 'book_author_list' %}">Authors</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="account/">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+            <!-- Content will be injected here -->
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Book Store. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

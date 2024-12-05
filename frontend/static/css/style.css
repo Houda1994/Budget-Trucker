@@ -1,0 +1,272 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333; /* Default text color */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px; /* Wider container for better layout */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header */
+header {
+    background-color: #b20027; /* Dark header background */
+    color: #fff;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Title on the left, nav on the right */
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header .title-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #b20027;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    header nav ul.show-menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}
+
+/* Main Content */
+main {
+    flex: 1; /* Fills the remaining height */
+    padding: 2rem 1rem; /* Adds spacing around main content */
+}
+
+.filter-form-container {
+    display: flex;
+    justify-content: flex-start; /* Align the filter form to the left */
+    margin-bottom: 2rem;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-form label {
+    font-weight: bold;
+}
+
+.filter-form select,
+.filter-form button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.book-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Limit to 6 columns per row */
+    gap: 1.5rem; /* Fixed gap between book cards */
+    justify-content: center;
+}
+
+.book-card {
+    background-color: #fff;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    width: 150px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden;
+}
+
+.book-card img {
+    max-width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.book-card h2 {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.book-card .book-info {
+    text-align: left;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.book-card .price {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Book Detail */
+.book-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.book-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.book-image {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.book-info p {
+    margin: 0.5rem 0;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-detail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .filter-form-container {
+        justify-content: center;
+    }
+
+    .author-detail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .author-picture img {
+        max-width: 100%;
+    }
+}

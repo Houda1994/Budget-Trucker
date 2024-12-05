@@ -15,14 +15,28 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}" or "Unnamed Author"
 
+
 # This is the Book Model
 class Book(models.Model):
+    CATEGORY_CHOICES = [
+        ('fiction', 'Fiction'),
+        ('nonfiction', 'Non-Fiction'),
+        ('mystery', 'Mystery'),
+        ('fantasy', 'Fantasy'),
+        ('biography', 'Biography'),
+        ('science', 'Science'),
+        ('history', 'History'),
+    ]
+    
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     isbn = models.CharField(max_length=13)
     stock = models.IntegerField()
     cover = models.ImageField(upload_to='covers/', blank=True)
+    description_short = models.TextField(blank=True)
+    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES, null=True, blank=True)
+    published_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.title

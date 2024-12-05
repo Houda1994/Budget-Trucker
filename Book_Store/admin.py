@@ -10,8 +10,9 @@ class AuthorAdmin(admin.ModelAdmin):
     
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'price', 'isbn', 'stock', 'cover')
-    fields = ('title', 'author', 'price', 'isbn', 'stock', 'cover')  
+    list_display = ('title', 'author', 'category', 'price', 'isbn', 'stock', 'published_date')
+    list_filter = ('category', 'author')
+    search_fields = ('title', 'author__first_name', 'author__last_name', 'isbn') 
     
 
 admin.site.register(Staff)

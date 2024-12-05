@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Authors{% endblock %}
+
+{% block content %}
+<h1>Authors</h1>
+
+<div class="filter-form-container">
+    <form method="get" action="" class="filter-form">
+        <!-- Keep the search query -->
+        <input type="hidden" name="q" value="{{ query }}">
+
+        <label for="category">Filter by Category:</label>
+        <select name="category" id="category">
+            <option value="">All</option>
+            {% for cat in categories %}
+                <option value="{{ cat.0 }}" {% if selected_category == cat.0 %}selected{% endif %}>{{ cat.1 }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Apply</button>
+    </form>
+</div>
+
+<!-- Author List -->
+{% if authors %}
+<div class="author-list">
+    {% for author in authors %}
+        <a href="{% url 'author_detail' author.pk %}" class="author-name">{{ author.first_name }} {{ author.last_name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

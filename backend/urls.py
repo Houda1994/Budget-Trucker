@@ -16,15 +16,21 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from Book_Store import views
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('', views.home, name='base.html'),
+    path('admin/', admin.site.urls),
+    path('', views.home, name='home'),  # Root URL pattern for the home page
+    path('accounts/', include('django.contrib.auth.urls')),  # Include built-in auth URLs
+    path('books/', views.book_list, name='book_list'),  # Book list view
+    path('books/<int:pk>/', views.book_detail, name='book_detail'), # Book detail view
+    path('books-authors/', views.book_author_list, name='book_author_list'), # Author List
+    path('author/<int:pk>/', views.author_detail, name='author_detail'),
+    
 ]
 
 if settings.DEBUG:
