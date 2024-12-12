@@ -40,3 +40,7 @@ to add new db every time (in order)
 ---------- Website ---------
 to run website: python manage.py runserver or localhost:8000 -> or the 8000 may be different to each of us
 
+------ For the Project to work -----
+Download the requirements.txt 
+
+command: pip install -r virtual_environments/requirements.txt

@@ -28,7 +28,6 @@ def home(request):
     return render(request, 'home.html', {'form': form})
 
 
-login_required
 def account(request):
     if request.method == 'POST':
         logout(request)
