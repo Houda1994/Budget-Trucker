@@ -3,9 +3,37 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book, Author
 from .forms import BookForm
 from django.db.models import Q  # For advanced search queries
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import logout
 
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return redirect('book_list')
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('book_list')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'home.html', {'form': form})
+
+
+login_required
+def account(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('home')
+    return render(request, 'account.html')
 
 def book_list(request):
     query = request.GET.get('q', '')
@@ -72,3 +100,7 @@ def author_suggestions(request):
         suggestions = list(authors.values('pk', 'first_name', 'last_name'))
         return JsonResponse(suggestions, safe=False)
     return JsonResponse([], safe=False)
+
+def about(request):
+    return render(request, 'books/about.html')
+

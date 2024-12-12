@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 from Book_Store import views
 
 
@@ -30,8 +31,9 @@ urlpatterns = [
     path('books/<int:pk>/', views.book_detail, name='book_detail'), # Book detail view
     path('books-authors/', views.book_author_list, name='book_author_list'), # Author List
     path('author/<int:pk>/', views.author_detail, name='author_detail'),
-     path('authors/suggestions/', views.author_suggestions, name='author_suggestions'),
-    
+    path('authors/suggestions/', views.author_suggestions, name='author_suggestions'),
+    path('about/', views.about, name='about'),  # About page view
+    path('account/', views.account, name='account'),
 ]
 
 if settings.DEBUG:

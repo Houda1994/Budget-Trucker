@@ -14,10 +14,9 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('category', 'author')
     search_fields = ('title', 'author__first_name', 'author__last_name', 'isbn') 
     
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'chosen_username', 'email', 'phone', 'address', 'city', 'state', 'zip')
 
-admin.site.register(Staff)
 
-
-admin.site.register(Customer)
-# admin.site.register(Transaction)
 

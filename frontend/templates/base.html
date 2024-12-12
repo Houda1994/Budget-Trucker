@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Book Store{% endblock %}</title>
+    <title>{% block title %}Anywhere and Everywhere{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <div class="container header-container">
-            <h1><a href="/" class="title-link">Book Store</a></h1>
+            <h1><a href="{% url 'home' %}" class="title-link">Anywhere and Everywhere Bookstore
+            </a></h1>
             <nav>
                 <div class="menu-icon" onclick="toggleMenu()">
                     <div class="bar"></div>
@@ -19,11 +20,14 @@
                     <div class="bar"></div>
                 </div>
                 <ul id="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="{% url 'book_list' %}">Books</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    {% if user.is_authenticated%}
                     <li><a href="{% url 'book_author_list' %}">Authors</a></li>
-                    <li><a href="/">About</a></li>
-                    <li><a href="/">Account</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'account' %}">Account</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -37,7 +41,7 @@
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2023 Book Store. All rights reserved.</p>
+            <p>&copy; 2024 Anywhere and Everywhere Book Store by SDEV 220 Group 4. All rights reserved.</p>
         </div>
     </footer>
     <script src="{% static 'js/script.js' %}"></script>

@@ -1,1 +1,37 @@
-<!-- about the group -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<h2>Developers of 'Anywhere and Everywhere Bookstore'</h2>
+<div class="developers">
+    <div class="developer">
+        <img src="{% static 'other_pictures/Houda_Elkarachi.jpeg' %}" alt="Developer 1">
+        <div class="info-container">
+            <p class="name">Houda Elkarachi</p>
+            <p class="role">Project Manager</p>
+        </div>
+    </div>
+    <div class="developer">
+        <img src="{% static 'other_pictures/Christopher_Whitney.jpeg' %}" alt="Developer 2">
+        <div class="info-container">
+            <p class="name">Christopher Whitney</p>
+            <p class="role">Lead Developer</p>
+        </div>
+    </div>
+    <div class="developer">
+        <img src="{% static 'other_pictures/Ozgur_Ucar.jpeg' %}" alt="Developer 3">
+        <div class="info-container">
+            <p class="name">Ozgur Ucar</p>
+            <p class="role">Backend Developer</p>
+        </div>
+    </div>
+    <div class="developer">
+        <img src="{% static 'other_pictures/Hershey_Marbeda.jpeg' %}" alt="Developer 4">
+        <div class="info-container">
+            <p class="name">Hershey Marbeda</p>
+            <p class="role">Frontend Developer</p>
+        </div>
+</div>
+{% endblock %}
